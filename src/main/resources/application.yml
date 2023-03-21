@@ -1,0 +1,29 @@
+
+#Actuator configuration
+management:
+  server:
+    base-path: /
+    port: 80
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health
+
+#Spring boot configuration
+spring:
+  application:
+    name: spring-boot-docker
+
+#Application context base path
+server:
+  port: 8080
+  servlet:
+    contextPath: /spring-boot-docker
+
+#application.security.ignored: /health
+
+logging:
+  level:
+    ROOT: DEBUG
+
