@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-hello-world
-          image: kvpratapr/spring-boot-hello-world:main-4b1afe8
+          image: kvpratapr/spring-boot-hello-world:main-284d4f8
           ports:
             - containerPort: 8080
           lifecycle:
