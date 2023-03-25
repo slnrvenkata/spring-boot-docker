@@ -9,7 +9,7 @@ public class HelloWorldController {
 
     @RequestMapping("/hello")
     public String home() {
-        return "Hello venkata pratap!";
+        return "Hello testing flux!";
     }
 
 }
