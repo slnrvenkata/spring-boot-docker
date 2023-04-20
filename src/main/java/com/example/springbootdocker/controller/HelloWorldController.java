@@ -1,15 +1,20 @@
 package com.example.springbootdocker.controller;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class HelloWorldController {
 
-    @RequestMapping("/hello")
-    public String home() {
-        return "Hello testing flux!";
-    }
+    @Autowired
+    @Qualifier("jwksRestTemplate")
+    private RestTemplate jwsUtilsRestTemplate;
 
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hi Krishna!";
+    }
 }

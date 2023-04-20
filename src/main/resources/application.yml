@@ -2,13 +2,12 @@
 #Actuator configuration
 management:
   server:
-    base-path: /
     port: 80
   endpoints:
     web:
       base-path: /
       exposure:
-        include: health
+        include: health,prometheus
 
 #Spring boot configuration
 spring:
@@ -19,11 +18,37 @@ spring:
 server:
   port: 8080
   servlet:
-    contextPath: /spring-boot-docker
+    contextPath: /
 
 #application.security.ignored: /health
+directory:
+  client:
+    verificationEnabled : true
+    keystore_password: 5Osulj6t
+    key_password: 5Osulj6t
+    key_location: src/main/resources/keys/
+  server:
+    verificationEnabled : true
+    truststore_password: changeit
+    truststore_location: src/main/resources/truststore-sbx/
 
+oracleDb:
+  driverClassName: oracle.jdbc.OracleDriver
+  url: jdbc:oracle:thin:@(description=(enable=broken)(address_list=(load_balance=off)(failover=on)(address=(host=dbexadvlsk00.santanderuk.dev.corp)(protocol=tcp)(port=1561))(address=(host=dbexadvlsk00.santanderuk.dev.corp)(protocol=tcp)(port=1561)))(connect_data=(service_name=ODSKOB01)(FAILOVER_MODE=(TYPE=select)(METHOD=basic))))
+  username: SVC_THIRDPARTYDIRECTORY
+  password: Zx3224k96e387ag@
+  schema: THIRDPARTYDIRECTORY
+  validationQuery: SELECT 1 FROM DUAL
+  maxpoolsize: 100
+  minidle: 10
+
+# Hibernate
+hibernate:
+  dialect: org.hibernate.dialect.Oracle12cDialect
+  show_sql: true
+  hbm2ddl.auto: update
+  entitymanager.packagesToScan: com.example.springbootdocker
 logging:
   level:
-    ROOT: DEBUG
+    ROOT: INFO
 
