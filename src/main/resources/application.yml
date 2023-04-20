@@ -20,6 +20,11 @@ server:
   servlet:
     contextPath: /
 
+# Proxy
+proxy:
+  url: dia2.santanderuk.gs.corp
+  port: 80
+
 #application.security.ignored: /health
 directory:
   client:
